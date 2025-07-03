@@ -30,6 +30,109 @@ const Index = () => {
   const currentGenre = musicGenres.find(g => g.id === selectedGenre);
   const currentSubgenre = currentGenre?.subgenres.find(s => s.id === selectedSubgenre);
 
+  const getBannerInfo = () => {
+    switch (selectedGenre) {
+      case 'sertanejo':
+        return {
+          title: "Sertanejo - Raízes Brasileiras",
+          subtitle: "Do tradicional ao universitário, capture a essência do interior",
+          gradient: "from-amber-600 to-orange-600"
+        };
+      case 'pop':
+        return {
+          title: "Pop - Sonoridade Global",
+          subtitle: "Hits comerciais e melodias que conquistam multidões",
+          gradient: "from-pink-500 to-violet-600"
+        };
+      case 'rock':
+        return {
+          title: "Rock - Energia Pura",
+          subtitle: "Do clássico ao alternativo, atitude e potência",
+          gradient: "from-red-600 to-gray-800"
+        };
+      case 'rnb':
+        return {
+          title: "R&B - Soul e Sensualidade",
+          subtitle: "Grooves suaves e vocais expressivos",
+          gradient: "from-purple-600 to-indigo-800"
+        };
+      case 'samba-pagode':
+        return {
+          title: "Samba/Pagode - Alegria Brasileira",
+          subtitle: "Ritmo, percussão e a magia das rodas de samba",
+          gradient: "from-green-600 to-yellow-500"
+        };
+      case 'gospel':
+        return {
+          title: "Gospel - Música Inspiradora",
+          subtitle: "Fé, esperança e mensagens transformadoras",
+          gradient: "from-blue-600 to-cyan-500"
+        };
+      case 'funk':
+        return {
+          title: "Funk - Batida Urbana",
+          subtitle: "Energia das periferias, ritmo que contagia",
+          gradient: "from-yellow-500 to-red-600"
+        };
+      case 'rap':
+        return {
+          title: "Rap - Consciência e Lírica",
+          subtitle: "Palavras que transformam, flow que emociona",
+          gradient: "from-gray-700 to-black"
+        };
+      case 'trap':
+        return {
+          title: "Trap - Futuro do Hip-Hop",
+          subtitle: "808s pesados e melodias modernas",
+          gradient: "from-purple-800 to-pink-600"
+        };
+      case 'country':
+        return {
+          title: "Country - Tradição Americana",
+          subtitle: "Histórias da terra, guitarra e honestidade",
+          gradient: "from-orange-600 to-yellow-700"
+        };
+      case 'mpb':
+        return {
+          title: "MPB - Sofisticação Brasileira",
+          subtitle: "Poesia, harmonia e a alma do Brasil",
+          gradient: "from-emerald-600 to-teal-700"
+        };
+      case 'funk-soul':
+        return {
+          title: "Funk Soul - Groove Atemporal",
+          subtitle: "Pocket perfeito e sensualidade musical",
+          gradient: "from-amber-700 to-red-700"
+        };
+      case 'violao-voz':
+        return {
+          title: "Violão e Voz - Essência Pura",
+          subtitle: "Intimidade e verdade musical",
+          gradient: "from-brown-600 to-amber-800"
+        };
+      case 'piano-voz':
+        return {
+          title: "Piano e Voz - Elegância Clássica",
+          subtitle: "Sofisticação e expressão através das teclas",
+          gradient: "from-slate-700 to-gray-800"
+        };
+      case 'axe':
+        return {
+          title: "Axé - Festa Baiana",
+          subtitle: "Carnaval o ano todo, alegria contagiante",
+          gradient: "from-orange-500 to-red-500"
+        };
+      default:
+        return {
+          title: "Gerador de Prompts Musicais",
+          subtitle: "Crie prompts profissionais para diferentes gêneros musicais",
+          gradient: "from-primary to-accent"
+        };
+    }
+  };
+
+  const bannerInfo = getBannerInfo();
+
   const preencherSugestoes = (subgenre: SubGenre) => {
     setStyle(subgenre.style);
     setMood(subgenre.mood);
@@ -126,14 +229,14 @@ const Index = () => {
       
       <div className="max-w-5xl mx-auto">
         <div className="neo-card">
-          {/* Header */}
-          <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-primary mb-2 flex items-center justify-center gap-3">
+          {/* Dynamic Banner */}
+          <div className={`text-center mb-8 p-8 rounded-3xl bg-gradient-to-r ${bannerInfo.gradient} transition-all duration-500`}>
+            <h1 className="text-4xl font-bold text-white mb-3 flex items-center justify-center gap-3">
               <Music className="h-10 w-10" />
-              Gerador de Prompts Musicais
+              {bannerInfo.title}
             </h1>
-            <p className="text-muted-foreground">
-              Crie prompts profissionais para diferentes gêneros musicais
+            <p className="text-white/90 text-lg">
+              {bannerInfo.subtitle}
             </p>
           </div>
 
