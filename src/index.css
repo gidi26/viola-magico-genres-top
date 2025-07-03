@@ -2,95 +2,113 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Neomorphic Design System - All colors MUST be HSL */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Neomorphic Light Theme */
+    --background: 220 13% 91%;
+    --foreground: 222 84% 5%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 13% 91%;
+    --card-foreground: 222 84% 5%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 13% 91%;
+    --popover-foreground: 222 84% 5%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 45 93% 47%;
+    --accent-foreground: 26 83% 14%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 142 76% 36%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Neomorphic specific colors */
+    --neo-bg: 220 13% 91%;
+    --neo-highlight: 0 0% 100%;
+    --neo-shadow: 220 43% 11%;
+    --neo-inset-highlight: 0 0% 98%;
+    --neo-inset-shadow: 220 43% 22%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Music colors */
+    --music-primary: 142 76% 36%;
+    --music-secondary: 45 93% 47%;
+    --music-accent: 271 81% 56%;
 
-    --sidebar-primary: 240 5.9% 10%;
-
+    --sidebar-background: 220 14% 96%;
+    --sidebar-foreground: 240 5% 26%;
+    --sidebar-primary: 240 6% 10%;
     --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
+    --sidebar-accent: 240 5% 96%;
+    --sidebar-accent-foreground: 240 6% 10%;
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 217 91% 60%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    /* Neomorphic Dark Theme */
+    --background: 222 47% 11%;
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    --card: 222 47% 11%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 84% 4.9%;
+    --popover: 222 47% 11%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: 217 33% 17%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 45 93% 47%;
+    --accent-foreground: 26 83% 14%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 142 76% 36%;
+
+    /* Neomorphic specific colors for dark */
+    --neo-bg: 222 47% 11%;
+    --neo-highlight: 225 71% 25%;
+    --neo-shadow: 0 0% 0%;
+    --neo-inset-highlight: 225 71% 20%;
+    --neo-inset-shadow: 0 0% 0%;
+
+    /* Music colors for dark */
+    --music-primary: 142 76% 36%;
+    --music-secondary: 45 93% 47%;
+    --music-accent: 271 81% 56%;
+
+    --sidebar-background: 240 6% 10%;
+    --sidebar-foreground: 240 5% 96%;
+    --sidebar-primary: 224 76% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 240 4% 16%;
+    --sidebar-accent-foreground: 240 5% 96%;
+    --sidebar-border: 240 4% 16%;
+    --sidebar-ring: 217 91% 60%;
   }
 }
 
@@ -100,6 +118,77 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+}
+
+@layer components {
+  /* Neomorphic Components */
+  .neo-card {
+    @apply bg-background rounded-3xl p-6;
+    box-shadow: 
+      20px 20px 60px hsl(var(--neo-shadow) / 0.5),
+      -20px -20px 60px hsl(var(--neo-highlight) / 0.5);
+  }
+
+  .neo-button {
+    @apply bg-background rounded-2xl px-6 py-3 font-medium transition-all duration-200;
+    box-shadow: 
+      8px 8px 16px hsl(var(--neo-shadow) / 0.4),
+      -8px -8px 16px hsl(var(--neo-highlight) / 0.7);
+  }
+
+  .neo-button:hover {
+    box-shadow: 
+      6px 6px 12px hsl(var(--neo-shadow) / 0.4),
+      -6px -6px 12px hsl(var(--neo-highlight) / 0.7);
+  }
+
+  .neo-button:active {
+    box-shadow: 
+      inset 4px 4px 8px hsl(var(--neo-inset-shadow) / 0.4),
+      inset -4px -4px 8px hsl(var(--neo-inset-highlight) / 0.7);
+  }
+
+  .neo-input {
+    @apply bg-background rounded-xl px-4 py-3 border-none outline-none transition-all duration-200;
+    box-shadow: 
+      inset 6px 6px 12px hsl(var(--neo-inset-shadow) / 0.3),
+      inset -6px -6px 12px hsl(var(--neo-inset-highlight) / 0.5);
+  }
+
+  .neo-input:focus {
+    box-shadow: 
+      inset 8px 8px 16px hsl(var(--neo-inset-shadow) / 0.4),
+      inset -8px -8px 16px hsl(var(--neo-inset-highlight) / 0.6),
+      0 0 0 2px hsl(var(--primary) / 0.5);
+  }
+
+  .neo-select {
+    @apply bg-background rounded-xl px-4 py-3 border-none outline-none transition-all duration-200;
+    box-shadow: 
+      inset 4px 4px 8px hsl(var(--neo-inset-shadow) / 0.3),
+      inset -4px -4px 8px hsl(var(--neo-inset-highlight) / 0.5);
+  }
+
+  .neo-play-button {
+    @apply bg-primary text-primary-foreground rounded-full w-12 h-12 flex items-center justify-center transition-all duration-200;
+    box-shadow: 
+      6px 6px 12px hsl(var(--neo-shadow) / 0.4),
+      -6px -6px 12px hsl(var(--neo-highlight) / 0.7);
+  }
+
+  .neo-play-button:hover {
+    @apply scale-105;
+    box-shadow: 
+      8px 8px 16px hsl(var(--neo-shadow) / 0.5),
+      -8px -8px 16px hsl(var(--neo-highlight) / 0.8);
+  }
+
+  .neo-play-button:active {
+    @apply scale-95;
+    box-shadow: 
+      inset 3px 3px 6px hsl(var(--neo-inset-shadow) / 0.4),
+      inset -3px -3px 6px hsl(var(--neo-inset-highlight) / 0.7);
   }
 }
