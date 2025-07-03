@@ -36,97 +36,97 @@ const Index = () => {
         return {
           title: "Sertanejo - Raízes Brasileiras",
           subtitle: "Do tradicional ao universitário, capture a essência do interior",
-          gradient: "from-amber-600 to-orange-600"
+          image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=400&fit=crop"
         };
       case 'pop':
         return {
           title: "Pop - Sonoridade Global",
           subtitle: "Hits comerciais e melodias que conquistam multidões",
-          gradient: "from-pink-500 to-violet-600"
+          image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200&h=400&fit=crop"
         };
       case 'rock':
         return {
           title: "Rock - Energia Pura",
           subtitle: "Do clássico ao alternativo, atitude e potência",
-          gradient: "from-red-600 to-gray-800"
+          image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=400&fit=crop"
         };
       case 'rnb':
         return {
           title: "R&B - Soul e Sensualidade",
           subtitle: "Grooves suaves e vocais expressivos",
-          gradient: "from-purple-600 to-indigo-800"
+          image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=400&fit=crop"
         };
       case 'samba-pagode':
         return {
           title: "Samba/Pagode - Alegria Brasileira",
           subtitle: "Ritmo, percussão e a magia das rodas de samba",
-          gradient: "from-green-600 to-yellow-500"
+          image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&h=400&fit=crop"
         };
       case 'gospel':
         return {
           title: "Gospel - Música Inspiradora",
           subtitle: "Fé, esperança e mensagens transformadoras",
-          gradient: "from-blue-600 to-cyan-500"
+          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=400&fit=crop"
         };
       case 'funk':
         return {
           title: "Funk - Batida Urbana",
           subtitle: "Energia das periferias, ritmo que contagia",
-          gradient: "from-yellow-500 to-red-600"
+          image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=400&fit=crop"
         };
       case 'rap':
         return {
           title: "Rap - Consciência e Lírica",
           subtitle: "Palavras que transformam, flow que emociona",
-          gradient: "from-gray-700 to-black"
+          image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=400&fit=crop"
         };
       case 'trap':
         return {
           title: "Trap - Futuro do Hip-Hop",
           subtitle: "808s pesados e melodias modernas",
-          gradient: "from-purple-800 to-pink-600"
+          image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=400&fit=crop"
         };
       case 'country':
         return {
           title: "Country - Tradição Americana",
           subtitle: "Histórias da terra, guitarra e honestidade",
-          gradient: "from-orange-600 to-yellow-700"
+          image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&h=400&fit=crop"
         };
       case 'mpb':
         return {
           title: "MPB - Sofisticação Brasileira",
           subtitle: "Poesia, harmonia e a alma do Brasil",
-          gradient: "from-emerald-600 to-teal-700"
+          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=400&fit=crop"
         };
       case 'funk-soul':
         return {
           title: "Funk Soul - Groove Atemporal",
           subtitle: "Pocket perfeito e sensualidade musical",
-          gradient: "from-amber-700 to-red-700"
+          image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=400&fit=crop"
         };
       case 'violao-voz':
         return {
           title: "Violão e Voz - Essência Pura",
           subtitle: "Intimidade e verdade musical",
-          gradient: "from-brown-600 to-amber-800"
+          image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&h=400&fit=crop"
         };
       case 'piano-voz':
         return {
           title: "Piano e Voz - Elegância Clássica",
           subtitle: "Sofisticação e expressão através das teclas",
-          gradient: "from-slate-700 to-gray-800"
+          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=400&fit=crop"
         };
       case 'axe':
         return {
           title: "Axé - Festa Baiana",
           subtitle: "Carnaval o ano todo, alegria contagiante",
-          gradient: "from-orange-500 to-red-500"
+          image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&h=400&fit=crop"
         };
       default:
         return {
           title: "Gerador de Prompts Musicais",
           subtitle: "Crie prompts profissionais para diferentes gêneros musicais",
-          gradient: "from-primary to-accent"
+          image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200&h=400&fit=crop"
         };
     }
   };
@@ -230,14 +230,23 @@ const Index = () => {
       <div className="max-w-5xl mx-auto">
         <div className="neo-card">
           {/* Dynamic Banner */}
-          <div className={`text-center mb-8 p-8 rounded-3xl bg-gradient-to-r ${bannerInfo.gradient} transition-all duration-500`}>
-            <h1 className="text-4xl font-bold text-white mb-3 flex items-center justify-center gap-3">
-              <Music className="h-10 w-10" />
-              {bannerInfo.title}
-            </h1>
-            <p className="text-white/90 text-lg">
-              {bannerInfo.subtitle}
-            </p>
+          <div 
+            className="relative text-center mb-8 h-64 rounded-3xl overflow-hidden transition-all duration-500"
+            style={{
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url(${bannerInfo.image})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          >
+            <div className="absolute inset-0 flex flex-col justify-center items-center p-8">
+              <h1 className="text-4xl font-bold text-white mb-3 flex items-center justify-center gap-3">
+                <Music className="h-10 w-10" />
+                {bannerInfo.title}
+              </h1>
+              <p className="text-white/90 text-lg max-w-2xl">
+                {bannerInfo.subtitle}
+              </p>
+            </div>
           </div>
 
           {/* Seleção de Gênero */}
