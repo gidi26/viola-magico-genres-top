@@ -61,22 +61,22 @@
 
   .dark {
     /* Neomorphic Dark Theme */
-    --background: 222 47% 11%;
+    --background: 220 13% 18%;
     --foreground: 210 40% 98%;
 
-    --card: 222 47% 11%;
+    --card: 220 13% 18%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222 47% 11%;
+    --popover: 220 13% 18%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 142 76% 36%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 45 93% 47%;
+    --primary-foreground: 26 83% 14%;
 
-    --secondary: 217 33% 17%;
+    --secondary: 220 13% 25%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217 33% 17%;
+    --muted: 220 13% 25%;
     --muted-foreground: 215 20% 65%;
 
     --accent: 45 93% 47%;
@@ -85,19 +85,19 @@
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 142 76% 36%;
+    --border: 220 13% 25%;
+    --input: 220 13% 25%;
+    --ring: 45 93% 47%;
 
     /* Neomorphic specific colors for dark */
-    --neo-bg: 222 47% 11%;
-    --neo-highlight: 225 71% 25%;
-    --neo-shadow: 0 0% 0%;
-    --neo-inset-highlight: 225 71% 20%;
-    --neo-inset-shadow: 0 0% 0%;
+    --neo-bg: 220 13% 18%;
+    --neo-highlight: 220 13% 25%;
+    --neo-shadow: 220 13% 8%;
+    --neo-inset-highlight: 220 13% 22%;
+    --neo-inset-shadow: 220 13% 12%;
 
     /* Music colors for dark */
-    --music-primary: 142 76% 36%;
+    --music-primary: 45 93% 47%;
     --music-secondary: 45 93% 47%;
     --music-accent: 271 81% 56%;
 
