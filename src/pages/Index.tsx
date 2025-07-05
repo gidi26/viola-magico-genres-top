@@ -5,10 +5,11 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Music, Copy } from "lucide-react";
+import { Copy } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import ThemeToggle from "@/components/ThemeToggle";
 import { musicGenres, instrumentosOptions, Genre, SubGenre } from "@/data/musicGenres";
+import { useIsMobile } from "@/hooks/use-mobile";
 import studioBg1 from "@/assets/studio-bg-1.jpg";
 import studioBg2 from "@/assets/studio-bg-2.jpg";
 import studioBg3 from "@/assets/studio-bg-3.jpg";
@@ -18,6 +19,7 @@ import studioBg6 from "@/assets/studio-bg-6.jpg";
 
 const Index = () => {
   const { toast } = useToast();
+  const isMobile = useIsMobile();
   const [selectedGenre, setSelectedGenre] = useState<string>("sertanejo");
   const [selectedSubgenre, setSelectedSubgenre] = useState<string>("");
   const [style, setStyle] = useState("");
@@ -37,101 +39,103 @@ const Index = () => {
   const currentSubgenre = currentGenre?.subgenres.find(s => s.id === selectedSubgenre);
 
   const getBannerInfo = () => {
+    const defaultSubtitle = "A mente dos maiores Engenheiros de áudio, Produtores Musicais e Estúdios do mundo em um só lugar.";
+    
     switch (selectedGenre) {
        case 'sertanejo':
          return {
-           title: "Sertanejo - Raízes Brasileiras",
-           subtitle: "Do tradicional ao universitário, capture a essência do interior",
+           title: "Sertanejo",
+           subtitle: defaultSubtitle,
            image: "https://images.unsplash.com/photo-1504509546545-e000b4a62425?w=1200&h=400&fit=crop"
          };
       case 'pop':
         return {
-          title: "Pop - Sonoridade Global",
-          subtitle: "Hits comerciais e melodias que conquistam multidões",
+          title: "Pop",
+          subtitle: defaultSubtitle,
           image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200&h=400&fit=crop"
         };
        case 'rock':
          return {
-           title: "Rock - Energia Pura",
-           subtitle: "Do clássico ao alternativo, atitude e potência",
+           title: "Rock",
+           subtitle: defaultSubtitle,
            image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=400&fit=crop"
          };
        case 'rnb':
          return {
-           title: "R&B - Soul e Sensualidade",
-           subtitle: "Grooves suaves e vocais expressivos",
+           title: "R&B",
+           subtitle: defaultSubtitle,
            image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200&h=400&fit=crop"
          };
       case 'samba-pagode':
         return {
-          title: "Samba/Pagode - Alegria Brasileira",
-          subtitle: "Ritmo, percussão e a magia das rodas de samba",
+          title: "Samba/Pagode",
+          subtitle: defaultSubtitle,
           image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&h=400&fit=crop"
         };
       case 'gospel':
         return {
-          title: "Gospel - Música Inspiradora",
-          subtitle: "Fé, esperança e mensagens transformadoras",
+          title: "Gospel",
+          subtitle: defaultSubtitle,
           image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=400&fit=crop"
         };
        case 'funk':
          return {
-           title: "Funk - Batida Urbana",
-           subtitle: "Energia das periferias, ritmo que contagia",
+           title: "Funk",
+           subtitle: defaultSubtitle,
            image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=400&fit=crop"
          };
        case 'rap':
          return {
-           title: "Rap - Consciência e Lírica",
-           subtitle: "Palavras que transformam, flow que emociona",
+           title: "Rap",
+           subtitle: defaultSubtitle,
            image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=1200&h=400&fit=crop"
          };
        case 'trap':
          return {
-           title: "Trap - Futuro do Hip-Hop",
-           subtitle: "808s pesados e melodias modernas",
+           title: "Trap",
+           subtitle: defaultSubtitle,
            image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=1200&h=400&fit=crop"
          };
       case 'country':
         return {
-          title: "Country - Tradição Americana",
-          subtitle: "Histórias da terra, guitarra e honestidade",
+          title: "Country",
+          subtitle: defaultSubtitle,
           image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&h=400&fit=crop"
         };
       case 'mpb':
         return {
-          title: "MPB - Sofisticação Brasileira",
-          subtitle: "Poesia, harmonia e a alma do Brasil",
+          title: "MPB",
+          subtitle: defaultSubtitle,
           image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=400&fit=crop"
         };
        case 'funk-soul':
          return {
-           title: "Funk Soul - Groove Atemporal",
-           subtitle: "Pocket perfeito e sensualidade musical",
+           title: "Funk Soul",
+           subtitle: defaultSubtitle,
            image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&h=400&fit=crop"
          };
       case 'violao-voz':
         return {
-          title: "Violão e Voz - Essência Pura",
-          subtitle: "Intimidade e verdade musical",
+          title: "Violão e Voz",
+          subtitle: defaultSubtitle,
           image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&h=400&fit=crop"
         };
       case 'piano-voz':
         return {
-          title: "Piano e Voz - Elegância Clássica",
-          subtitle: "Sofisticação e expressão através das teclas",
+          title: "Piano e Voz",
+          subtitle: defaultSubtitle,
           image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=400&fit=crop"
         };
       case 'axe':
         return {
-          title: "Axé - Festa Baiana",
-          subtitle: "Carnaval o ano todo, alegria contagiante",
+          title: "Axé",
+          subtitle: defaultSubtitle,
           image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&h=400&fit=crop"
         };
       default:
         return {
           title: "Gerador de Prompts Musicais",
-          subtitle: "Crie prompts profissionais para diferentes gêneros musicais",
+          subtitle: defaultSubtitle,
           image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200&h=400&fit=crop"
         };
     }
@@ -250,11 +254,10 @@ const Index = () => {
             }}
           >
             <div className="absolute inset-0 flex flex-col justify-center items-center p-8">
-              <p className="text-5xl font-bold mb-2 tracking-wider uppercase drop-shadow-lg" style={{ color: 'hsl(var(--community-yellow))' }}>
+              <p className={`${isMobile ? 'text-3xl' : 'text-5xl'} font-bold mb-2 tracking-wider uppercase drop-shadow-lg`} style={{ color: 'hsl(var(--community-yellow))' }}>
                 REDESIGN.APP
               </p>
               <h1 className="text-4xl font-bold text-white mb-3 flex items-center justify-center gap-3">
-                <Music className="h-10 w-10" />
                 {bannerInfo.title}
               </h1>
               <p className="text-white/90 text-lg max-w-2xl">
