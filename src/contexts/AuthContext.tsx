@@ -27,20 +27,28 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null)
-      checkAdminStatus(session?.user ?? null)
-    })
+    const initAuth = async () => {
+      try {
+        // Get initial session
+        const { data: { session } } = await supabase.auth.getSession()
+        setUser(session?.user ?? null)
+        await checkAdminStatus(session?.user ?? null)
+      } catch (error) {
+        console.error('Auth initialization error:', error)
+        setUser(null)
+        setIsAdmin(false)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    initAuth()
 
     // Listen for auth changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
       setUser(session?.user ?? null)
-      checkAdminStatus(session?.user ?? null)
-      setLoading(false)
+      await checkAdminStatus(session?.user ?? null)
     })
-
-    setLoading(false)
 
     return () => subscription.unsubscribe()
   }, [])
@@ -52,17 +60,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
 
     try {
-      const { data, error } = await supabase
-        .from('users')
-        .select('email')
-        .eq('id', currentUser.id)
-        .single()
-
-      if (!error && data) {
-        // Define admin email here - replace with your actual admin email
-        const adminEmails = ['g_dferreira@hotmail.com'] // Add your admin email here
-        setIsAdmin(adminEmails.includes(data.email))
-      }
+      // Admin emails list
+      const adminEmails = ['g_dferreira@hotmail.com']
+      setIsAdmin(adminEmails.includes(currentUser.email || ''))
     } catch (error) {
       console.error('Error checking admin status:', error)
       setIsAdmin(false)
