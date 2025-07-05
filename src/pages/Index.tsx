@@ -189,16 +189,24 @@ const Index = () => {
 
   const playExample = (audioUrl?: string) => {
     if (audioUrl) {
-      // Implementar reprodução de áudio
-      console.log("Playing:", audioUrl);
-      toast({
-        title: "Reproduzindo exemplo",
-        description: "Funcionalidade em desenvolvimento"
+      const audio = new Audio(audioUrl);
+      audio.play().then(() => {
+        toast({
+          title: "Reproduzindo exemplo",
+          description: "Áudio iniciado com sucesso"
+        });
+      }).catch((error) => {
+        console.error("Erro ao reproduzir áudio:", error);
+        toast({
+          title: "Erro na reprodução",
+          description: "Não foi possível reproduzir o áudio",
+          variant: "destructive"
+        });
       });
     } else {
       toast({
         title: "Exemplo não disponível",
-        description: "Áudio de exemplo ainda não foi adicionado"
+        description: "Link do áudio ainda não foi adicionado"
       });
     }
   };
