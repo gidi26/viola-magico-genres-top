@@ -301,23 +301,23 @@ const Index = () => {
                            backgroundPosition: 'center'
                          }}
                        >
-                         <div className="absolute inset-0 bg-background/60 dark:bg-background/70 backdrop-blur-sm"></div>
+                         <div className="absolute inset-0 bg-background/10 dark:bg-background/70 backdrop-blur-none dark:backdrop-blur-sm"></div>
                          <div className="relative z-10">
                            <div className="flex items-center justify-between mb-2">
-                             <h3 className="font-semibold text-foreground drop-shadow-sm">{subgenre.name}</h3>
+                             <h3 className="font-semibold text-white dark:text-foreground drop-shadow-lg dark:drop-shadow-sm">{subgenre.name}</h3>
                              <button
                                onClick={(e) => {
                                  e.stopPropagation();
                                  playExample(subgenre.audioUrl);
                                }}
-                               className="neo-play-button !w-8 !h-8 bg-background/80 backdrop-blur-sm"
+                               className="neo-play-button !w-8 !h-8 bg-white/20 dark:bg-background/80 backdrop-blur-sm border-white/30 dark:border-muted"
                                title="Reproduzir exemplo"
                              >
-                               <Play className="h-3 w-3 ml-0.5" />
+                               <Play className="h-3 w-3 ml-0.5 text-white dark:text-foreground" />
                              </button>
                            </div>
-                           <p className="text-sm text-muted-foreground drop-shadow-sm">{subgenre.style}</p>
-                           <p className="text-xs text-primary font-medium drop-shadow-sm mt-1">{subgenre.mood}</p>
+                           <p className="text-sm text-white/90 dark:text-muted-foreground drop-shadow-lg dark:drop-shadow-sm font-medium">{subgenre.style}</p>
+                           <p className="text-xs text-white dark:text-primary font-semibold drop-shadow-lg dark:drop-shadow-sm mt-1">{subgenre.mood}</p>
                          </div>
                        </div>
                    ))}
