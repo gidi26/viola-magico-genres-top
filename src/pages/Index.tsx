@@ -260,7 +260,7 @@ const Index = () => {
               <h1 className="text-4xl font-bold text-white mb-3 flex items-center justify-center gap-3">
                 {bannerInfo.title}
               </h1>
-              <p className="text-white/90 text-lg max-w-2xl">
+              <p className="text-white/90 text-sm md:text-lg max-w-2xl">
                 {bannerInfo.subtitle}
               </p>
             </div>
@@ -471,13 +471,13 @@ const Index = () => {
                   onClick={gerarPrompt}
                   className="neo-button w-full !bg-primary !text-primary-foreground font-bold text-lg py-4"
                 >
-                  Gerar Prompt
+                  Gerar MetaTag
                 </button>
 
                 {/* Área do Prompt */}
                 {prompt && (
                   <div className="space-y-3">
-                    <Label htmlFor="prompt-txt" className="text-lg font-semibold">Prompt Gerado:</Label>
+                    <Label htmlFor="prompt-txt" className="text-lg font-semibold">MetaTag Gerado:</Label>
                     <textarea 
                       id="prompt-txt"
                       value={prompt}
@@ -489,7 +489,7 @@ const Index = () => {
                       className="neo-button w-full !bg-accent !text-accent-foreground font-bold flex items-center justify-center gap-2"
                     >
                       <Copy className="h-5 w-5" />
-                      Copiar Prompt
+                      Copiar MetaTag
                     </button>
                   </div>
                 )}
