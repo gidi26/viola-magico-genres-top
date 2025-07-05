@@ -1,11 +1,11 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Music, Copy, Play, Pause } from "lucide-react";
+import { Music, Copy } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import ThemeToggle from "@/components/ThemeToggle";
 import { musicGenres, instrumentosOptions, Genre, SubGenre } from "@/data/musicGenres";
@@ -32,8 +32,6 @@ const Index = () => {
   const [tecnica, setTecnica] = useState("");
   const [negativo, setNegativo] = useState("");
   const [prompt, setPrompt] = useState("");
-  const [playingSubgenreId, setPlayingSubgenreId] = useState<string | null>(null);
-  const currentAudioRef = useRef<HTMLAudioElement | null>(null);
 
   const currentGenre = musicGenres.find(g => g.id === selectedGenre);
   const currentSubgenre = currentGenre?.subgenres.find(s => s.id === selectedSubgenre);
@@ -189,57 +187,6 @@ const Index = () => {
     }
   }, [currentSubgenre]);
 
-  const playExample = (audioUrl?: string, subgenreId?: string) => {
-    if (!audioUrl) {
-      toast({
-        title: "Exemplo não disponível",
-        description: "Link do áudio ainda não foi adicionado"
-      });
-      return;
-    }
-
-    // Se já está tocando o mesmo áudio, pause
-    if (playingSubgenreId === subgenreId && currentAudioRef.current) {
-      currentAudioRef.current.pause();
-      setPlayingSubgenreId(null);
-      toast({
-        title: "Áudio pausado",
-        description: "Reprodução pausada"
-      });
-      return;
-    }
-
-    // Para qualquer áudio que esteja tocando
-    if (currentAudioRef.current) {
-      currentAudioRef.current.pause();
-    }
-
-    // Cria novo áudio e reproduz
-    const audio = new Audio(audioUrl);
-    currentAudioRef.current = audio;
-    
-    audio.play().then(() => {
-      setPlayingSubgenreId(subgenreId || null);
-      toast({
-        title: "Reproduzindo exemplo",
-        description: "Áudio iniciado com sucesso"
-      });
-    }).catch((error) => {
-      console.error("Erro ao reproduzir áudio:", error);
-      setPlayingSubgenreId(null);
-      toast({
-        title: "Erro na reprodução",
-        description: "Não foi possível reproduzir o áudio",
-        variant: "destructive"
-      });
-    });
-
-    // Remove o controle quando o áudio termina
-    audio.addEventListener('ended', () => {
-      setPlayingSubgenreId(null);
-    });
-  };
-
   const gerarPrompt = () => {
     const genreTexto = currentGenre?.name || "";
     const subgenreTexto = currentSubgenre?.name || "";
@@ -358,27 +305,11 @@ const Index = () => {
                          }}
                        >
                          <div className="absolute inset-0 bg-black/60 backdrop-blur-none"></div>
-                         <div className="relative z-10">
-                           <div className="flex items-center justify-between mb-2">
-                             <h3 className="font-semibold text-white drop-shadow-xl">{subgenre.name}</h3>
-                              <button
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  playExample(subgenre.audioUrl, subgenre.id);
-                                }}
-                                className="neo-play-button !w-8 !h-8 bg-white/20 backdrop-blur-sm border-white/30 hover:bg-white/30"
-                                title={playingSubgenreId === subgenre.id ? "Pausar exemplo" : "Reproduzir exemplo"}
-                              >
-                                {playingSubgenreId === subgenre.id ? (
-                                  <Pause className="h-3 w-3 text-white" />
-                                ) : (
-                                  <Play className="h-3 w-3 ml-0.5 text-white" />
-                                )}
-                              </button>
-                           </div>
-                           <p className="text-sm text-white/95 drop-shadow-xl font-medium">{subgenre.style}</p>
-                           <p className="text-xs text-white drop-shadow-xl font-semibold mt-1">{subgenre.mood}</p>
-                         </div>
+                          <div className="relative z-10">
+                            <h3 className="font-semibold text-white drop-shadow-xl mb-2">{subgenre.name}</h3>
+                            <p className="text-sm text-white/95 drop-shadow-xl font-medium">{subgenre.style}</p>
+                            <p className="text-xs text-white drop-shadow-xl font-semibold mt-1">{subgenre.mood}</p>
+                          </div>
                        </div>
                    ))}
                  </div>
