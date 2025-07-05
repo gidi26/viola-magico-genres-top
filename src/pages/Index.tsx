@@ -9,12 +9,12 @@ import { Music, Copy, Play } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import ThemeToggle from "@/components/ThemeToggle";
 import { musicGenres, instrumentosOptions, Genre, SubGenre } from "@/data/musicGenres";
-import gradientBg1 from "@/assets/gradient-bg-1.jpg";
-import gradientBg2 from "@/assets/gradient-bg-2.jpg";
-import gradientBg3 from "@/assets/gradient-bg-3.jpg";
-import gradientBg4 from "@/assets/gradient-bg-4.jpg";
-import gradientBg5 from "@/assets/gradient-bg-5.jpg";
-import gradientBg6 from "@/assets/gradient-bg-6.jpg";
+import studioBg1 from "@/assets/studio-bg-1.jpg";
+import studioBg2 from "@/assets/studio-bg-2.jpg";
+import studioBg3 from "@/assets/studio-bg-3.jpg";
+import studioBg4 from "@/assets/studio-bg-4.jpg";
+import studioBg5 from "@/assets/studio-bg-5.jpg";
+import studioBg6 from "@/assets/studio-bg-6.jpg";
 
 const Index = () => {
   const { toast } = useToast();
@@ -140,7 +140,7 @@ const Index = () => {
   const bannerInfo = getBannerInfo();
 
   const getSubgenreBackground = (genreId: string, index: number) => {
-    const backgrounds = [gradientBg1, gradientBg2, gradientBg3, gradientBg4, gradientBg5, gradientBg6];
+    const backgrounds = [studioBg1, studioBg2, studioBg3, studioBg4, studioBg5, studioBg6];
     
     // Create a consistent but different seed for each genre to avoid repetition across genres
     const genreHash = genreId.split('').reduce((a, b) => {
