@@ -38,24 +38,24 @@ const Index = () => {
 
   const getBannerInfo = () => {
     switch (selectedGenre) {
-      case 'sertanejo':
-        return {
-          title: "Sertanejo - Raízes Brasileiras",
-          subtitle: "Do tradicional ao universitário, capture a essência do interior",
-          image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=400&fit=crop"
-        };
+       case 'sertanejo':
+         return {
+           title: "Sertanejo - Raízes Brasileiras",
+           subtitle: "Do tradicional ao universitário, capture a essência do interior",
+           image: "https://images.unsplash.com/photo-1504509546545-e000b4a62425?w=1200&h=400&fit=crop"
+         };
       case 'pop':
         return {
           title: "Pop - Sonoridade Global",
           subtitle: "Hits comerciais e melodias que conquistam multidões",
           image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200&h=400&fit=crop"
         };
-      case 'rock':
-        return {
-          title: "Rock - Energia Pura",
-          subtitle: "Do clássico ao alternativo, atitude e potência",
-          image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=400&fit=crop"
-        };
+       case 'rock':
+         return {
+           title: "Rock - Energia Pura",
+           subtitle: "Do clássico ao alternativo, atitude e potência",
+           image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=1200&h=400&fit=crop"
+         };
       case 'rnb':
         return {
           title: "R&B - Soul e Sensualidade",
@@ -74,24 +74,24 @@ const Index = () => {
           subtitle: "Fé, esperança e mensagens transformadoras",
           image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=400&fit=crop"
         };
-      case 'funk':
-        return {
-          title: "Funk - Batida Urbana",
-          subtitle: "Energia das periferias, ritmo que contagia",
-          image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=400&fit=crop"
-        };
+       case 'funk':
+         return {
+           title: "Funk - Batida Urbana",
+           subtitle: "Energia das periferias, ritmo que contagia",
+           image: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1200&h=400&fit=crop"
+         };
       case 'rap':
         return {
           title: "Rap - Consciência e Lírica",
           subtitle: "Palavras que transformam, flow que emociona",
           image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=400&fit=crop"
         };
-      case 'trap':
-        return {
-          title: "Trap - Futuro do Hip-Hop",
-          subtitle: "808s pesados e melodias modernas",
-          image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=400&fit=crop"
-        };
+       case 'trap':
+         return {
+           title: "Trap - Futuro do Hip-Hop",
+           subtitle: "808s pesados e melodias modernas",
+           image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=1200&h=400&fit=crop"
+         };
       case 'country':
         return {
           title: "Country - Tradição Americana",
