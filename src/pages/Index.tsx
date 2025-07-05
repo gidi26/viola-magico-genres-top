@@ -54,14 +54,14 @@ const Index = () => {
          return {
            title: "Rock - Energia Pura",
            subtitle: "Do clássico ao alternativo, atitude e potência",
-           image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=1200&h=400&fit=crop"
+           image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=400&fit=crop"
          };
-      case 'rnb':
-        return {
-          title: "R&B - Soul e Sensualidade",
-          subtitle: "Grooves suaves e vocais expressivos",
-          image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=400&fit=crop"
-        };
+       case 'rnb':
+         return {
+           title: "R&B - Soul e Sensualidade",
+           subtitle: "Grooves suaves e vocais expressivos",
+           image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200&h=400&fit=crop"
+         };
       case 'samba-pagode':
         return {
           title: "Samba/Pagode - Alegria Brasileira",
@@ -78,14 +78,14 @@ const Index = () => {
          return {
            title: "Funk - Batida Urbana",
            subtitle: "Energia das periferias, ritmo que contagia",
-           image: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1200&h=400&fit=crop"
+           image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=400&fit=crop"
          };
-      case 'rap':
-        return {
-          title: "Rap - Consciência e Lírica",
-          subtitle: "Palavras que transformam, flow que emociona",
-          image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=400&fit=crop"
-        };
+       case 'rap':
+         return {
+           title: "Rap - Consciência e Lírica",
+           subtitle: "Palavras que transformam, flow que emociona",
+           image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=1200&h=400&fit=crop"
+         };
        case 'trap':
          return {
            title: "Trap - Futuro do Hip-Hop",
@@ -104,12 +104,12 @@ const Index = () => {
           subtitle: "Poesia, harmonia e a alma do Brasil",
           image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=400&fit=crop"
         };
-      case 'funk-soul':
-        return {
-          title: "Funk Soul - Groove Atemporal",
-          subtitle: "Pocket perfeito e sensualidade musical",
-          image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=400&fit=crop"
-        };
+       case 'funk-soul':
+         return {
+           title: "Funk Soul - Groove Atemporal",
+           subtitle: "Pocket perfeito e sensualidade musical",
+           image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1200&h=400&fit=crop"
+         };
       case 'violao-voz':
         return {
           title: "Violão e Voz - Essência Pura",
