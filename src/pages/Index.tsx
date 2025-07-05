@@ -266,6 +266,9 @@ const Index = () => {
             }}
           >
             <div className="absolute inset-0 flex flex-col justify-center items-center p-8">
+              <p className="text-white/80 text-sm font-medium mb-2 tracking-wider uppercase">
+                Comunidade [IA]UDIO
+              </p>
               <h1 className="text-4xl font-bold text-white mb-3 flex items-center justify-center gap-3">
                 <Music className="h-10 w-10" />
                 {bannerInfo.title}
