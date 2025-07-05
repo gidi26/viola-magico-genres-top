@@ -139,12 +139,25 @@ const Index = () => {
 
   const bannerInfo = getBannerInfo();
 
-  const getSubgenreBackground = (index: number) => {
+  const getSubgenreBackground = (genreId: string, index: number) => {
     const backgrounds = [gradientBg1, gradientBg2, gradientBg3, gradientBg4, gradientBg5, gradientBg6];
-    // Randomize but keep consistent for same index
-    const shuffledBackgrounds = [...backgrounds].sort(() => 0.5 - Math.random());
-    console.log('Background for index', index, ':', shuffledBackgrounds[index % shuffledBackgrounds.length]);
-    return shuffledBackgrounds[index % shuffledBackgrounds.length];
+    
+    // Create a consistent but different seed for each genre to avoid repetition across genres
+    const genreHash = genreId.split('').reduce((a, b) => {
+      a = ((a << 5) - a) + b.charCodeAt(0);
+      return a & a;
+    }, 0);
+    
+    // Shuffle backgrounds based on genre and use index to get unique images per subgenre
+    const shuffledForGenre = [...backgrounds].sort((a, b) => {
+      const aIndex = backgrounds.indexOf(a);
+      const bIndex = backgrounds.indexOf(b);
+      return ((aIndex + genreHash) % 1000) - ((bIndex + genreHash) % 1000);
+    });
+    
+    const selectedBg = shuffledForGenre[index % shuffledForGenre.length];
+    console.log('Background for genre', genreId, 'index', index, ':', selectedBg);
+    return selectedBg;
   };
 
   const preencherSugestoes = (subgenre: SubGenre) => {
@@ -299,7 +312,7 @@ const Index = () => {
                          }`}
                          onClick={() => setSelectedSubgenre(subgenre.id)}
                          style={{
-                           backgroundImage: `url(${getSubgenreBackground(index)})`,
+                           backgroundImage: `url(${getSubgenreBackground(selectedGenre, index)})`,
                            backgroundSize: 'cover',
                            backgroundPosition: 'center'
                          }}
