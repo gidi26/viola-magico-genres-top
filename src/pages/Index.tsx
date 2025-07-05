@@ -9,6 +9,12 @@ import { Music, Copy, Play } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import ThemeToggle from "@/components/ThemeToggle";
 import { musicGenres, instrumentosOptions, Genre, SubGenre } from "@/data/musicGenres";
+import gradientBg1 from "@/assets/gradient-bg-1.jpg";
+import gradientBg2 from "@/assets/gradient-bg-2.jpg";
+import gradientBg3 from "@/assets/gradient-bg-3.jpg";
+import gradientBg4 from "@/assets/gradient-bg-4.jpg";
+import gradientBg5 from "@/assets/gradient-bg-5.jpg";
+import gradientBg6 from "@/assets/gradient-bg-6.jpg";
 
 const Index = () => {
   const { toast } = useToast();
@@ -132,6 +138,11 @@ const Index = () => {
   };
 
   const bannerInfo = getBannerInfo();
+
+  const getSubgenreBackground = (index: number) => {
+    const backgrounds = [gradientBg1, gradientBg2, gradientBg3, gradientBg4, gradientBg5, gradientBg6];
+    return backgrounds[index % backgrounds.length];
+  };
 
   const preencherSugestoes = (subgenre: SubGenre) => {
     setStyle(subgenre.style);
@@ -274,35 +285,43 @@ const Index = () => {
             {currentGenre && (
               <div className="space-y-3">
                 <Label className="text-lg font-semibold text-primary">Escolha o Subgênero:</Label>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {currentGenre.subgenres.map((subgenre) => (
-                    <div
-                      key={subgenre.id}
-                      className={`neo-card p-4 cursor-pointer transition-all border ${
-                        selectedSubgenre === subgenre.id 
-                          ? 'border-primary bg-primary/5' 
-                          : 'border-transparent hover:border-primary/30'
-                      }`}
-                      onClick={() => setSelectedSubgenre(subgenre.id)}
-                    >
-                      <div className="flex items-center justify-between mb-2">
-                        <h3 className="font-semibold text-foreground">{subgenre.name}</h3>
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            playExample(subgenre.audioUrl);
-                          }}
-                          className="neo-play-button !w-8 !h-8"
-                          title="Reproduzir exemplo"
-                        >
-                          <Play className="h-3 w-3 ml-0.5" />
-                        </button>
-                      </div>
-                      <p className="text-sm text-muted-foreground">{subgenre.style}</p>
-                      <p className="text-xs text-accent mt-1">{subgenre.mood}</p>
-                    </div>
-                  ))}
-                </div>
+                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                   {currentGenre.subgenres.map((subgenre, index) => (
+                       <div
+                         key={subgenre.id}
+                         className={`relative neo-card p-4 cursor-pointer transition-all border overflow-hidden group ${
+                           selectedSubgenre === subgenre.id 
+                             ? 'border-primary bg-primary/5' 
+                             : 'border-transparent hover:border-primary/30'
+                         }`}
+                         onClick={() => setSelectedSubgenre(subgenre.id)}
+                         style={{
+                           backgroundImage: `url(${getSubgenreBackground(index)})`,
+                           backgroundSize: 'cover',
+                           backgroundPosition: 'center'
+                         }}
+                       >
+                         <div className="absolute inset-0 bg-background/90 dark:bg-background/85"></div>
+                         <div className="relative z-10">
+                           <div className="flex items-center justify-between mb-2">
+                             <h3 className="font-semibold text-foreground">{subgenre.name}</h3>
+                             <button
+                               onClick={(e) => {
+                                 e.stopPropagation();
+                                 playExample(subgenre.audioUrl);
+                               }}
+                               className="neo-play-button !w-8 !h-8"
+                               title="Reproduzir exemplo"
+                             >
+                               <Play className="h-3 w-3 ml-0.5" />
+                             </button>
+                           </div>
+                           <p className="text-sm text-muted-foreground">{subgenre.style}</p>
+                           <p className="text-xs text-primary/80 mt-1 font-medium">{subgenre.mood}</p>
+                         </div>
+                       </div>
+                   ))}
+                 </div>
               </div>
             )}
 
