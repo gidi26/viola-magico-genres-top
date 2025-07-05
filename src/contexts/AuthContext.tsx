@@ -60,9 +60,20 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
 
     try {
-      // Admin emails list
-      const adminEmails = ['g_dferreira@hotmail.com']
-      setIsAdmin(adminEmails.includes(currentUser.email || ''))
+      // Check if user is admin in our users table
+      const { data: userData, error } = await supabase
+        .from('users')
+        .select('role')
+        .eq('auth_user_id', currentUser.id)
+        .single()
+
+      if (error) {
+        console.error('Error checking admin status:', error)
+        setIsAdmin(false)
+        return
+      }
+
+      setIsAdmin(userData?.role === 'admin')
     } catch (error) {
       console.error('Error checking admin status:', error)
       setIsAdmin(false)
@@ -97,9 +108,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         .from('users')
         .insert([
           {
-            id: data.user.id,
+            auth_user_id: data.user.id,
             name,
             email,
+            role: 'user', // default role
           }
         ])
       
