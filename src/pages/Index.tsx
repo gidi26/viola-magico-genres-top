@@ -291,8 +291,8 @@ const Index = () => {
                          key={subgenre.id}
                          className={`relative neo-card p-4 cursor-pointer transition-all border overflow-hidden group ${
                            selectedSubgenre === subgenre.id 
-                             ? 'border-primary bg-primary/5' 
-                             : 'border-transparent hover:border-primary/30'
+                             ? 'border-primary bg-primary/10' 
+                             : 'border-muted-foreground/20 hover:border-primary/50'
                          }`}
                          onClick={() => setSelectedSubgenre(subgenre.id)}
                          style={{
@@ -301,23 +301,23 @@ const Index = () => {
                            backgroundPosition: 'center'
                          }}
                        >
-                         <div className="absolute inset-0 bg-background/90 dark:bg-background/85"></div>
+                         <div className="absolute inset-0 bg-background/60 dark:bg-background/70 backdrop-blur-sm"></div>
                          <div className="relative z-10">
                            <div className="flex items-center justify-between mb-2">
-                             <h3 className="font-semibold text-foreground">{subgenre.name}</h3>
+                             <h3 className="font-semibold text-foreground drop-shadow-sm">{subgenre.name}</h3>
                              <button
                                onClick={(e) => {
                                  e.stopPropagation();
                                  playExample(subgenre.audioUrl);
                                }}
-                               className="neo-play-button !w-8 !h-8"
+                               className="neo-play-button !w-8 !h-8 bg-background/80 backdrop-blur-sm"
                                title="Reproduzir exemplo"
                              >
                                <Play className="h-3 w-3 ml-0.5" />
                              </button>
                            </div>
-                           <p className="text-sm text-muted-foreground">{subgenre.style}</p>
-                           <p className="text-xs text-primary/80 mt-1 font-medium">{subgenre.mood}</p>
+                           <p className="text-sm text-muted-foreground drop-shadow-sm">{subgenre.style}</p>
+                           <p className="text-xs text-primary font-medium drop-shadow-sm mt-1">{subgenre.mood}</p>
                          </div>
                        </div>
                    ))}
