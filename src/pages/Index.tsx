@@ -141,8 +141,10 @@ const Index = () => {
 
   const getSubgenreBackground = (index: number) => {
     const backgrounds = [gradientBg1, gradientBg2, gradientBg3, gradientBg4, gradientBg5, gradientBg6];
-    console.log('Background for index', index, ':', backgrounds[index % backgrounds.length]);
-    return backgrounds[index % backgrounds.length];
+    // Randomize but keep consistent for same index
+    const shuffledBackgrounds = [...backgrounds].sort(() => 0.5 - Math.random());
+    console.log('Background for index', index, ':', shuffledBackgrounds[index % shuffledBackgrounds.length]);
+    return shuffledBackgrounds[index % shuffledBackgrounds.length];
   };
 
   const preencherSugestoes = (subgenre: SubGenre) => {
@@ -302,23 +304,23 @@ const Index = () => {
                            backgroundPosition: 'center'
                          }}
                        >
-                         <div className="absolute inset-0 bg-black/60 dark:bg-background/70 backdrop-blur-none dark:backdrop-blur-sm"></div>
+                         <div className="absolute inset-0 bg-black/60 backdrop-blur-none"></div>
                          <div className="relative z-10">
                            <div className="flex items-center justify-between mb-2">
-                             <h3 className="font-semibold text-white dark:text-foreground drop-shadow-xl dark:drop-shadow-sm">{subgenre.name}</h3>
+                             <h3 className="font-semibold text-white drop-shadow-xl">{subgenre.name}</h3>
                              <button
                                onClick={(e) => {
                                  e.stopPropagation();
                                  playExample(subgenre.audioUrl);
                                }}
-                               className="neo-play-button !w-8 !h-8 bg-white/20 dark:bg-background/80 backdrop-blur-sm border-white/30 dark:border-muted hover:bg-white/30 dark:hover:bg-background/90"
+                               className="neo-play-button !w-8 !h-8 bg-white/20 backdrop-blur-sm border-white/30 hover:bg-white/30"
                                title="Reproduzir exemplo"
                              >
-                               <Play className="h-3 w-3 ml-0.5 text-white dark:text-foreground" />
+                               <Play className="h-3 w-3 ml-0.5 text-white" />
                              </button>
                            </div>
-                           <p className="text-sm text-white/95 dark:text-muted-foreground drop-shadow-xl dark:drop-shadow-sm font-medium">{subgenre.style}</p>
-                           <p className="text-xs text-white dark:text-primary font-semibold drop-shadow-xl dark:drop-shadow-sm mt-1">{subgenre.mood}</p>
+                           <p className="text-sm text-white/95 drop-shadow-xl font-medium">{subgenre.style}</p>
+                           <p className="text-xs text-white drop-shadow-xl font-semibold mt-1">{subgenre.mood}</p>
                          </div>
                        </div>
                    ))}
