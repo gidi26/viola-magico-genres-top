@@ -60,7 +60,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       if (!error && data) {
         // Define admin email here - replace with your actual admin email
-        const adminEmails = ['admin@example.com'] // Add your admin email here
+        const adminEmails = ['g_dferreira@hotmail.com'] // Add your admin email here
         setIsAdmin(adminEmails.includes(data.email))
       }
     } catch (error) {
