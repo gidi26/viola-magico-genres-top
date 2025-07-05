@@ -226,13 +226,13 @@ const Index = () => {
     try {
       await navigator.clipboard.writeText(prompt);
       toast({
-        title: "Prompt copiado!",
-        description: "O prompt foi copiado para a área de transferência.",
+        title: "MetaTag copiado!",
+        description: "O MetaTag foi copiado para a área de transferência.",
       });
     } catch (err) {
       toast({
         title: "Erro ao copiar",
-        description: "Não foi possível copiar o prompt.",
+        description: "Não foi possível copiar o MetaTag.",
         variant: "destructive",
       });
     }
