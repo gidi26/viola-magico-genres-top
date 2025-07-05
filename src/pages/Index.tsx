@@ -141,6 +141,7 @@ const Index = () => {
 
   const getSubgenreBackground = (index: number) => {
     const backgrounds = [gradientBg1, gradientBg2, gradientBg3, gradientBg4, gradientBg5, gradientBg6];
+    console.log('Background for index', index, ':', backgrounds[index % backgrounds.length]);
     return backgrounds[index % backgrounds.length];
   };
 
