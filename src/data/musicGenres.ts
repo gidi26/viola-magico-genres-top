@@ -39,7 +39,8 @@ export const musicGenres: Genre[] = [
         dinamica: "Começar intimista, crescer no refrão, solo de viola expressivo com rubato, finalização em decrescendo natural",
         emocoes: "Saudade do interior, amor pela terra natal, lida do homem do campo, simplicidade genuína, melancolia caipira",
         tecnica: "Microfonação próxima da viola caipira, captação ambiente para percussão, doubles vocais sutis, automação de reverb por seção",
-        negativo: "Evitar beats eletrônicos, autotune, sintetizadores modernos, compressão excessiva, efeitos digitais"
+        negativo: "Evitar beats eletrônicos, autotune, sintetizadores modernos, compressão excessiva, efeitos digitais",
+        audioUrl: "https://alunos.gidiferreira.com/wp-content/uploads/2023/07/ds54452-c.mp3"
       },
       {
         id: 'universitario',
