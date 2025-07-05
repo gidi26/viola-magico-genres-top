@@ -289,10 +289,10 @@ const Index = () => {
                    {currentGenre.subgenres.map((subgenre, index) => (
                        <div
                          key={subgenre.id}
-                         className={`relative neo-card p-4 cursor-pointer transition-all border overflow-hidden group ${
+                         className={`relative neo-card p-4 cursor-pointer transition-all overflow-hidden group ${
                            selectedSubgenre === subgenre.id 
-                             ? 'border-primary bg-primary/10' 
-                             : 'border-muted-foreground/20 hover:border-primary/50'
+                             ? 'bg-primary/10 shadow-lg' 
+                             : 'hover:shadow-md'
                          }`}
                          onClick={() => setSelectedSubgenre(subgenre.id)}
                          style={{
@@ -304,7 +304,7 @@ const Index = () => {
                          <div className="absolute inset-0 dark:bg-background/70 backdrop-blur-none dark:backdrop-blur-sm"></div>
                          <div className="relative z-10">
                            <div className="flex items-center justify-between mb-2">
-                             <h3 className="font-semibold text-white dark:text-foreground drop-shadow-lg dark:drop-shadow-sm">{subgenre.name}</h3>
+                             <h3 className="font-semibold text-white dark:text-foreground drop-shadow-xl dark:drop-shadow-sm">{subgenre.name}</h3>
                              <button
                                onClick={(e) => {
                                  e.stopPropagation();
@@ -316,8 +316,8 @@ const Index = () => {
                                <Play className="h-3 w-3 ml-0.5 text-white dark:text-foreground" />
                              </button>
                            </div>
-                           <p className="text-sm text-white/95 dark:text-muted-foreground drop-shadow-lg dark:drop-shadow-sm font-medium">{subgenre.style}</p>
-                           <p className="text-xs text-white dark:text-primary font-semibold drop-shadow-lg dark:drop-shadow-sm mt-1">{subgenre.mood}</p>
+                           <p className="text-sm text-white/95 dark:text-muted-foreground drop-shadow-xl dark:drop-shadow-sm font-medium">{subgenre.style}</p>
+                           <p className="text-xs text-white dark:text-primary font-semibold drop-shadow-xl dark:drop-shadow-sm mt-1">{subgenre.mood}</p>
                          </div>
                        </div>
                    ))}
