@@ -304,7 +304,7 @@ const Index = () => {
           >
             <div className="absolute inset-0 flex flex-col justify-center items-center p-8">
               <p className="text-5xl font-bold mb-2 tracking-wider uppercase drop-shadow-lg" style={{ color: 'hsl(var(--community-yellow))' }}>
-                Comunidade [IA]UDIO
+                REDESIGN.APP
               </p>
               <h1 className="text-4xl font-bold text-white mb-3 flex items-center justify-center gap-3">
                 <Music className="h-10 w-10" />
