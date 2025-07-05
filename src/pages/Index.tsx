@@ -8,6 +8,7 @@ const Index = () => {
 
   const handleSignOut = async () => {
     await signOut();
+    navigate('/login');
   };
 
   return (

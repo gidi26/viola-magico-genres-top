@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
@@ -18,6 +19,7 @@ const userSchema = z.object({
 type UserFormValues = z.infer<typeof userSchema>
 
 const AdminPanel = () => {
+  const navigate = useNavigate()
   const { createUser, signOut } = useAuth()
   const { toast } = useToast()
 
@@ -50,6 +52,7 @@ const AdminPanel = () => {
   const handleSignOut = async () => {
     try {
       await signOut()
+      navigate('/login')
       toast({
         title: 'Logout realizado',
         description: 'Você foi desconectado com sucesso.',
