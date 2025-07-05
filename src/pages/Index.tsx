@@ -301,7 +301,7 @@ const Index = () => {
                            backgroundPosition: 'center'
                          }}
                        >
-                         <div className="absolute inset-0 dark:bg-background/70 backdrop-blur-none dark:backdrop-blur-sm"></div>
+                         <div className="absolute inset-0 bg-black/60 dark:bg-background/70 backdrop-blur-none dark:backdrop-blur-sm"></div>
                          <div className="relative z-10">
                            <div className="flex items-center justify-between mb-2">
                              <h3 className="font-semibold text-white dark:text-foreground drop-shadow-xl dark:drop-shadow-sm">{subgenre.name}</h3>
